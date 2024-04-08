@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block title %}Comprar ticket{% endblock %}
+
+{% block content %}
+<p></p>
+<h1>Listado de Rutas</h1>
+<p>Listado de Rutas</p>
+<a class="btn btn-primary" href="/rutas/comprarTicket">Comprar Ticket </a>
+<a class="btn btn-primary" href="/rutas/comprarTicketssssss">VerTicketsComprados </a>
+<ul>
+    {% for ruta in rutas %}
+    <li>{{ ruta.IDRuta }} - {{ ruta.Ruta }} - Salida: {{ ruta.HoraSalida }} - Llegada: {{ ruta.HoraLlegada }} - Capacidad: {{ ruta.Capacidad }} - Placa: {{ ruta.Placa }}</li>
+
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+
+{% block title %}Registrarse{% endblock %}
+
+{% block content %}
+<form method="POST">
+    <h3 align="center">Sign Up</h3>
+
+    <div class="form-group">
+      <label for="cedula">Cédula</label>
+      <input
+        type="text"
+        class="form-control"
+        id="cedula"
+        name="cedula"
+        placeholder="Digite su cedula"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="Nombre">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        id="Nombre"
+        name="Nombre"
+        placeholder="Digite su nombre"
+      />
+    </div>
+    <div class="form-group">
+      <label for="primerApellido">Primer Apellido</label>
+      <input
+        type="text"
+        class="form-control"
+        id="primerApellido"
+        name="primerApellido"
+        placeholder="Digite su primer apellido"
+        />
+    <div class="form-group">
+      <label for="segundoApellido">Segundo Apellido</label>
+      <input
+        type="text"
+        class="form-control"
+        id="segundoApellido"
+        name="segundoApellido"
+        placeholder="Digite su segundo apellido"
+        />
+    </div>
+    <div class="form-group">
+      <label for="telefono">Numero de telefono</label>
+      <input
+        type="text"
+        class="form-control"
+        id="telefono"
+        name="telefono"
+        placeholder="Digite su numero telefonico"
+      />
+    </div>
+    <div class="form-group">
+      <label for="contrasena1">Digite su contraseña</label>
+      <input
+        type="password"
+        class="form-control"
+        id="contrasena1"
+        name="contrasena1"
+        placeholder="Digite su contraseña"
+      />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock %}

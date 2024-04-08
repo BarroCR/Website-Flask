@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}Comprar Ticket{% endblock %}
+
+{% block content %}
+<h1>Comprar ticket</h1>
+<form method="post">
+    <p>ID Ruta</p>
+    <select name="IDRuta" id="IDRuta" class ="form-control">
+        {%for ruta in rutas %}
+        <option value ="{{ ruta.IDRuta }}">{{ ruta.Ruta }} 
+        {% endfor %}
+    </select>
+
+    <p>Metodo de Pago</p>
+    <select name="IDMetodo" id="IDMetodo" class ="form-control">
+        {%for metodo in metodos %}
+        <option value ="{{ metodo.IDMetodo }}">{{metodo.Tipo}}
+        {% endfor %}
+    </select>
+
+    <div class="mb-3">
+        <label for="Usuario" class="form-label">Usuario</label>
+        <textarea value = {{usuario}} class="form-control" id="Usuario" name="Usuario" required style="color:black; height:2.4rem; resize: none " disabled >{{usuario}}</textarea>
+        <input type="hidden" name="UsuarioHidden" value="{{ usuario }}">
+    </div>
+    <button type="submit" class="btn btn-primary">Comprar</button>
+</form>
+
+{% endblock %}
