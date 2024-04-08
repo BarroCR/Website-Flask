@@ -91,9 +91,9 @@ def registrar():
         pApellido=request.form.get("primerApellido")
         sApellido=request.form.get("segundoApellido")
         tel=int(request.form.get("telefono"))
-        contraseña=request.form.get("contrasena1")
+        contra=request.form.get("contra")
         cursor=conn.cursor()
-        cursor.execute('EXEC sp_InsertarUsuario @Id=?, @NombreU=?, @Apell1=?, @Apell2=?, @Tel=?,@Contra=?',(id,nombre,pApellido,sApellido,tel,contraseña))
+        cursor.execute('EXEC sp_InsertarUsuario @Id=?, @NombreU=?, @Apell1=?, @Apell2=?, @Tel=?,@Contra=?',(id,nombre,pApellido,sApellido,tel,contra))
         cursor.commit()
         return render_template('login.html')
     
