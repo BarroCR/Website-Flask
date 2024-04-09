@@ -4,14 +4,51 @@
 
 {% block content %}
 <p></p>
-<h1>Listado de Rutas</h1>
-<p>Listado de Rutas</p>
-<a class="btn btn-primary" href="/rutas/comprarTicket">Comprar Ticket </a>
-<a class="btn btn-primary" href="/rutas/comprarTicketssssss">VerTicketsComprados </a>
-<ul>
-    {% for ruta in rutas %}
-    <li>{{ ruta.IDRuta }} - {{ ruta.Ruta }} - Salida: {{ ruta.HoraSalida }} - Llegada: {{ ruta.HoraLlegada }} - Capacidad: {{ ruta.Capacidad }} - Placa: {{ ruta.Placa }}</li>
+<h1>Listado de Rutas
 
-{% endfor %}
-</ul>
+    <a class="btn btn-primary" href="/rutas/comprarTicket">Comprar Ticket </a>
+    <a class="btn btn-primary" href="/rutas/verTickets">Ver Tickets  </a>
+    <a class="btn btn-primary" href="/rutas/verFacturas">Ver Facturas </a>
+
+
+</h1>
+
+
+
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID Ruta</th>
+            <th>Ruta</th>
+            <th>Salida</th>
+            <th>Llegada</th>
+            <th>Capacidad</th>
+            <th>Placa</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ruta in rutas %}
+        <tr>
+            <td>{{ ruta.IDRuta }}</td>
+            <td>{{ ruta.Ruta }}</td>
+            <td>{{ ruta.HoraSalida }}</td>
+            <td>{{ ruta.HoraLlegada }}</td>
+            <td>{{ ruta.Capacidad }}</td>
+            <td>{{ ruta.Placa }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
 {% endblock %}

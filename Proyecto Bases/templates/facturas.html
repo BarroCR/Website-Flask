@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block title %}Lista de Facturas{% endblock %}
+
+{% block content %}
+
+<h3>Lista de Facturas
+    <a class="btn btn-primary" href="/rutas">Volver</a>
+</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID </th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Hora</th>
+            <th>Fecha</th>
+            <th>Tipo de pago</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for factura in facturas %}
+        <tr>
+            <td>{{ factura.IDFactura }}</td>
+            <td>{{ factura.Nombre }}</td>
+            <td>{{ factura.Apellido1 }}</td>
+            <td>{{ factura.Hora }}</td>
+            <td>{{ factura.Fecha }}</td>
+            <td>{{ factura.MetodoPago}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+
+{% endblock %}

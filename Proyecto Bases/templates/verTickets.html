@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block title %}Lista de tickets{% endblock %}
+
+{% block content %}
+
+<h3>Lista de tickets comprados
+    <a class="btn btn-primary" href="/rutas">Volver</a>
+</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID </th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Ruta</th>
+            <th>Fecha</th>
+            <th>Tipo de pago</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tiquete in tiquetes %}
+        <tr>
+            <td>{{ tiquete.IDTiquete }}</td>
+            <td>{{ tiquete.Nombre }}</td>
+            <td>{{ tiquete.Apellido1 }}</td>
+            <td>{{ tiquete.Ruta }}</td>
+            <td>{{ tiquete.Fecha }}</td>
+            <td>{{ tiquete.MetodoPago }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+
+{% endblock %}

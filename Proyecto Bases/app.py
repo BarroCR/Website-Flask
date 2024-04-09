@@ -52,7 +52,7 @@ def ComprarTicket():
         
 
 
-        return redirect(url_for('listar_rutas'))
+        return redirect(url_for('showFactura'))
     else:
         error='Credenciales invalidas'
     return render_template('comprarTicket.html',rutas=rutas, metodos=metodos, usuario=usuario, error=error)
@@ -65,8 +65,8 @@ def iniciarSesion():
     
     if request.method=='POST':
         global usuario
-        usuario=request.form.get('Usuario')
-        contraseñaP=request.form.get('Contraseña')
+        usuario=int(request.form.get('Usuario'))
+        contraseñaP=request.form.get('passw')
         cursor=conn.cursor()
         cursor.execute('EXEC sp_ValidarUsuario @Usuario=?,@Contrasena=?',(usuario,contraseñaP ))
         cursor.execute('select*from tablaValidacion')
@@ -106,8 +106,41 @@ def mainPage():
 
 @app.route('/cerrarSesion')
 def logout():
-    
     return render_template('index.html')
+
+
+@app.route('/rutas/verTickets')
+def showTickets():
+    cursor = conn.cursor()
+    cursor.execute('EXEC sp_MostrarTiquete @Identificacion=?',(usuario,))
+    tiquetes=cursor.fetchall()
+
+    return render_template('verTickets.html',tiquetes=tiquetes)
+
+
+
+@app.route('/rutas/verFacturas')
+def showFacturas():
+
+    cursor = conn.cursor()
+    cursor.execute('EXEC sp_MostrarFacturas @Identificacion=?',(usuario,))
+    facturas=cursor.fetchall()
+
+    return render_template('facturas.html',facturas=facturas)
+
+
+@app.route('/rutas/comprarTicket/factura')
+def showFactura():
+    cursor=conn.cursor()
+    cursor.execute('EXEC sp_MostrarUltimaFactura @Identificacion=?',(usuario))
+    factura=cursor.fetchone()
+    
+    return render_template('facturaTicket.html', factura=factura)
+
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
